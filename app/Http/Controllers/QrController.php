@@ -8,6 +8,7 @@ class QrController extends Controller
 {
     public function test()
     {
-        return View::make('qr');
+        $logo = public_path('img/fast-food.png');
+        return View::make('qr', compact('logo'));
     }
 }
