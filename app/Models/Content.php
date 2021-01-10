@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
@@ -27,6 +28,13 @@ class Content extends Model
     protected $casts = [
         'options' => 'array',
     ];
+
+    public const PDF_TYPE = 'pdf';
+    public const FILE_TYPE = 'file';
+    public const IMAGE_TYPE = 'img';
+    public const EMBED_TYPE = 'embed';
+    public const LINK_TYPE = 'link_type';
+    public const HTML_TYPE = 'html';
 
     public function landing()
     {
