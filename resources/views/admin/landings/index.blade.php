@@ -27,9 +27,14 @@
                                 <tr>
                                     <td>{{ $landing->id }}</td>
                                     <td>{{ $landing->name }}</td>
-                                    <td>{{ $landing->link }}</td>
+                                    <td><a href="{{ $landing->link }}">link</a></td>
                                     <td>{{ $landing->contents->count() }}</td>
-                                    <td>{{ route('admin.landings.edit', $landing) }}</td>
+                                    <td>
+                                        <div class="btn-toolbar">
+                                        <a class="btn btn-info btn-sm" href="{{ route('admin.landings.edit', $landing) }}"><i class="fas fa-fw fa-pen"></i> Edit</a>
+                                        <a class="btn btn-danger btn-sm" href="{{ route('admin.landings.delete', $landing) }}"><i class="fas fa-fw fa-times"></i> Delete</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

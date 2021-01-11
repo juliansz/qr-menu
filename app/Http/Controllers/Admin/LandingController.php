@@ -13,4 +13,9 @@ class LandingController extends Controller
         $landings = Landing::all();
         return View::make('admin.landings.index', compact('landings'));
     }
+
+    public function landing(Landing $landing)
+    {
+        return View::make('landing', compact('landing'));
+    }
 }

@@ -33,4 +33,14 @@ class Landing extends Model
     {
         return $this->hasMany(Content::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function getLinkAttribute()
+    {
+        return route('landing', $this);
+    }
 }

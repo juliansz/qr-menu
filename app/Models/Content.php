@@ -41,4 +41,9 @@ class Content extends Model
     {
         return $this->belongsTo(Landing::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
