@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use View;
 use App\Http\Controllers\Controller;
+use App\Models\Landing;
 
 class LandingController extends Controller
 {
     public function index()
     {
-        return View::make('admin.landings.index');
+        $landings = Landing::all();
+        return View::make('admin.landings.index', compact('landings'));
     }
 }

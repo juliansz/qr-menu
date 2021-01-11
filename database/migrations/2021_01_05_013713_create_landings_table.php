@@ -19,8 +19,8 @@ class CreateLandingsTable extends Migration
             $table->softDeletes();
             $table->string('name');
             $table->string('slug');
-            $table->text('description');
-            $table->json('options');
+            $table->text('description')->nullable();
+            $table->json('options')->nullable();
         });
     }
 

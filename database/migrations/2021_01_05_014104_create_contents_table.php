@@ -20,8 +20,13 @@ class CreateContentsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('type');
-            $table->text('description');
-            $table->json('options');
+            $table->text('description')->nullable();
+            $table->json('options')->nullable();
+            $table->text('url')->nullable();
+            $table->text('content')->nullable();
+            $table->unsignedBigInteger('landing_id');
+
+            $table->foreign('landing_id')->references('id')->on('landings');
         });
     }
 

@@ -38,7 +38,7 @@ class ContentFactory extends Factory
         return $this->afterMaking(function (Content $content) use ($landing) {
             $content->setRelation('landing', $landing);
         })->afterCreating(function (Content $content) use ($landing) {
-            $content->landing()->attach($landing->id);
+            $content->landing()->associate($landing->id);
         });
     }
 
