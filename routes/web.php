@@ -25,22 +25,22 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.index');
     Route::prefix('/landings')->group(function () {
-        Route::get('/', [App\Http\Controllers\Admin\LandingController::class, 'index']);
-        Route::get('/create', [App\Http\Controllers\Admin\LandingController::class, 'create']);
-        Route::post('/store', [App\Http\Controllers\Admin\LandingController::class, 'store']);
-        Route::get('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'edit']);
-        Route::post('/{landing}/update', [App\Http\Controllers\Admin\LandingController::class, 'post']);
-        Route::get('/{landing}/delete', [App\Http\Controllers\Admin\LandingController::class, 'delete']);
+        Route::get('/', [App\Http\Controllers\Admin\LandingController::class, 'index'])->name('admin.landings.index');
+        Route::get('/create', [App\Http\Controllers\Admin\LandingController::class, 'create'])->name('admin.landings.create');
+        Route::post('/create', [App\Http\Controllers\Admin\LandingController::class, 'store']);
+        Route::get('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'edit'])->name('admin.landings.edit');
+        Route::post('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'post']);
+        Route::get('/{landing}/delete', [App\Http\Controllers\Admin\LandingController::class, 'delete'])->name('admin.landings.delete');
 
         Route::prefix('/{landing}/contents')->group(function () {
-            Route::get('/', [App\Http\Controllers\Admin\ContentController::class, 'index']);
-            Route::get('/create', [App\Http\Controllers\Admin\ContentController::class, 'create']);
-            Route::post('/store', [App\Http\Controllers\Admin\ContentController::class, 'store']);
-            Route::get('/{landing}/edit', [App\Http\Controllers\Admin\ContentController::class, 'edit']);
-            Route::post('/{landing}/update', [App\Http\Controllers\Admin\ContentController::class, 'post']);
-            Route::get('/{landing}/delete', [App\Http\Controllers\Admin\ContentController::class, 'delete']);
+            Route::get('/', [App\Http\Controllers\Admin\ContentController::class, 'index'])->name('admin.contents.index');
+            Route::get('/create', [App\Http\Controllers\Admin\ContentController::class, 'create'])->name('admin.contents.create');
+            Route::post('/create', [App\Http\Controllers\Admin\ContentController::class, 'store']);
+            Route::get('/{landing}/edit', [App\Http\Controllers\Admin\ContentController::class, 'edit'])->name('admin.contents.edit');
+            Route::post('/{landing}/edit', [App\Http\Controllers\Admin\ContentController::class, 'post']);
+            Route::get('/{landing}/delete', [App\Http\Controllers\Admin\ContentController::class, 'delete'])->name('admin.contents.delete');
         });
     });
 });

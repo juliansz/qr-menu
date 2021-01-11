@@ -29,7 +29,7 @@
                                     <td>{{ $landing->name }}</td>
                                     <td>{{ $landing->link }}</td>
                                     <td>{{ $landing->contents->count() }}</td>
-                                    <td>{{ route('landingEdit', $landing) }}</td>
+                                    <td>{{ route('admin.landings.edit', $landing) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
