@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Landing extends Model
 {
@@ -42,5 +43,12 @@ class Landing extends Model
     public function getLinkAttribute()
     {
         return route('landing', $this);
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($landing) {
+            $landing->slug = $landing->slug ? $landing->slug : Str::random(config('qr.random-slug-size'));
+        });
     }
 }

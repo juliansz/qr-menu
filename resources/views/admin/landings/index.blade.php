@@ -9,11 +9,14 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Landing pages</h3>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Landing pages</h3>
+                    <div class="card-tools">
+                        <a class="btn btn-success btn-sm" href="{{ route('admin.landings.create') }}">New landing page</a>
+                    </div>
                 </div>
-                <div class="box-body no-padding">
+                <div class="card-body">
                     <table class="table table-striped">
                         <tbody>
                             <tr>
@@ -43,8 +46,4 @@
             </div>
         </div>
     </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop

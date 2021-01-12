@@ -32,7 +32,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/create', [App\Http\Controllers\Admin\LandingController::class, 'create'])->name('admin.landings.create');
         Route::post('/create', [App\Http\Controllers\Admin\LandingController::class, 'store']);
         Route::get('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'edit'])->name('admin.landings.edit');
-        Route::post('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'post']);
+        Route::post('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'update']);
         Route::get('/{landing}/delete', [App\Http\Controllers\Admin\LandingController::class, 'delete'])->name('admin.landings.delete');
 
         Route::prefix('/{landing}/contents')->group(function () {
