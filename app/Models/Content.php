@@ -51,4 +51,11 @@ class Content extends Model
     {
         return 'slug';
     }
+
+    public function scopeFromLanding($query, Landing $landing)
+    {
+        return $query->where(function ($query) use ($landing) {
+            $query->where('landing_id', $landing->id);
+        });
+    }
 }
