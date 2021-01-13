@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Content extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,6 +21,7 @@ class Content extends Model
         'type',
         'description',
         'options',
+        'landing_id',
     ];
 
     /**
@@ -34,8 +37,10 @@ class Content extends Model
     public const FILE_TYPE = 'file';
     public const IMAGE_TYPE = 'img';
     public const EMBED_TYPE = 'embed';
-    public const LINK_TYPE = 'link_type';
+    public const LINK_TYPE = 'link';
     public const HTML_TYPE = 'html';
+
+    public const TYPES = ['pdf', 'file', 'img', 'embed', 'link', 'html'];
 
     public function landing()
     {

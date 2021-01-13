@@ -39,9 +39,9 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [App\Http\Controllers\Admin\ContentController::class, 'index'])->name('admin.contents.index');
             Route::get('/create', [App\Http\Controllers\Admin\ContentController::class, 'create'])->name('admin.contents.create');
             Route::post('/create', [App\Http\Controllers\Admin\ContentController::class, 'store']);
-            Route::get('/{landing}/edit', [App\Http\Controllers\Admin\ContentController::class, 'edit'])->name('admin.contents.edit');
-            Route::post('/{landing}/edit', [App\Http\Controllers\Admin\ContentController::class, 'post']);
-            Route::get('/{landing}/delete', [App\Http\Controllers\Admin\ContentController::class, 'delete'])->name('admin.contents.delete');
+            Route::get('/{content}/edit', [App\Http\Controllers\Admin\ContentController::class, 'edit'])->name('admin.contents.edit');
+            Route::post('/{content}/edit', [App\Http\Controllers\Admin\ContentController::class, 'update']);
+            Route::get('/{content}/delete', [App\Http\Controllers\Admin\ContentController::class, 'delete'])->name('admin.contents.delete');
         });
     });
 });
