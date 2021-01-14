@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use View;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QrGenerationRequest;
 use App\Models\Landing;
 use Illuminate\Http\Request;
 
@@ -50,5 +51,12 @@ class LandingController extends Controller
     public function landing(Landing $landing)
     {
         return View::make('landing', compact('landing'));
+    }
+
+    public function qr(QrGenerationRequest $request, Landing $landing)
+    {
+        $logo = public_path(config('qr.qr-logo-path'));
+        $size = $request->filled('size') ? config('qr.qr-'.$request->input('size').'-size') : config('qr.qr-small-size');
+        return View::make('admin.landings.qr', compact('logo', 'landing', 'size'));
     }
 }

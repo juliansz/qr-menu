@@ -23,6 +23,7 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Link</th>
+                                <th>QR</th>
                                 <th>Contents</th>
                                 <th>Actions</th>
                             </tr>
@@ -31,6 +32,7 @@
                                     <td>{{ $landing->id }}</td>
                                     <td>{{ $landing->name }}</td>
                                     <td><a href="{{ $landing->link }}">link</a></td>
+                                    <td><a href="{{ route('admin.landings.qr', $landing) }}"><i class="fas fa-fw fa-qrcode"></i></a></td>
                                     <td><a class="btn btn-success btn-sm" href="{{ route('admin.contents.index', $landing) }}"><i class="fas fa-fw fa-copy"></i> Edit ({{ $landing->contents->count() }})</a></td>
                                     <td>
                                         <div class="btn-toolbar">

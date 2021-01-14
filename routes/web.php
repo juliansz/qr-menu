@@ -34,6 +34,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'edit'])->name('admin.landings.edit');
         Route::post('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'update']);
         Route::get('/{landing}/delete', [App\Http\Controllers\Admin\LandingController::class, 'delete'])->name('admin.landings.delete');
+        Route::get('/{landing}/qr', [App\Http\Controllers\Admin\LandingController::class, 'qr'])->name('admin.landings.qr');
 
         Route::prefix('/{landing}/contents')->group(function () {
             Route::get('/', [App\Http\Controllers\Admin\ContentController::class, 'index'])->name('admin.contents.index');
