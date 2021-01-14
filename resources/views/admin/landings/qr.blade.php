@@ -19,9 +19,9 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-4">
-                            <form method="GET" name="form-size">
+                    <form method="GET" name="form-size">
+                        <div class="row">
+                            <div class="col-9 col-md-4">
                                 <div class="form-group">
                                     <label for="type">Select the size</label>
                                     <select name="size" id="size" class="form-control" onchange="this.form.submit()">
@@ -30,11 +30,24 @@
                                         <option value="large"  @if($size === config('qr.qr-large-size')) selected @endif>Large ({{ config('qr.qr-large-size') }} x {{ config('qr.qr-large-size') }})</option>
                                     </select>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="col-3 col-xl-1">
+                                <div class="form-group">
+                                    <label for="type">Use logo</label>
+                                    <input type="checkbox" name="logo" id="logo" class="form-control" value="1" @if($use_logo) checked @endif onchange="this.form.submit()">
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="visible-print text-center" id="qr">
-                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge($logo, 0.6, true)->errorCorrection('H')->size($size)->generate(env('APP_URL'))) !!}">
+                        @if($use_logo)
+                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge($logo, 0.6, true)->errorCorrection('H')->size($size)->generate(env('APP_URL'))) !!}">
+                        @else
+                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->errorCorrection('H')->size($size)->generate(env('APP_URL'))) !!}">
+                        @endif
+                        <br><br>
+                        <h2>{{ $landing->name }}</h2>
+                        <h2>{{ $landing->link }}</h2>
                     </div>
                     <a class="btn btn-success btn-sm" onClick="printDiv()" href="#">Print</a>
                 </div>

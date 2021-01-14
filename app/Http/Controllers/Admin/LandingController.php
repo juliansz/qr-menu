@@ -57,6 +57,7 @@ class LandingController extends Controller
     {
         $logo = public_path(config('qr.qr-logo-path'));
         $size = $request->filled('size') ? config('qr.qr-'.$request->input('size').'-size') : config('qr.qr-small-size');
-        return View::make('admin.landings.qr', compact('logo', 'landing', 'size'));
+        $use_logo = $request->filled('logo') ? true : false;
+        return View::make('admin.landings.qr', compact('logo', 'landing', 'size', 'use_logo'));
     }
 }
