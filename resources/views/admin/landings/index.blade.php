@@ -31,9 +31,9 @@
                                 <tr>
                                     <td>{{ $landing->id }}</td>
                                     <td>{{ $landing->name }}</td>
-                                    <td><a href="{{ $landing->link }}">link</a></td>
+                                    <td><a href="{{ $landing->link }}" target="_blank">link</a></td>
                                     <td><a href="{{ route('admin.landings.qr', $landing) }}"><i class="fas fa-fw fa-qrcode"></i></a></td>
-                                    <td><a class="btn btn-success btn-sm" href="{{ route('admin.contents.index', $landing) }}"><i class="fas fa-fw fa-copy"></i> Edit ({{ $landing->contents->count() }})</a></td>
+                                    <td><a class="btn btn-success btn-sm" href="{{ route('admin.contents.index', $landing) }}"><i class="fas fa-fw fa-copy"></i> Manage ({{ $landing->contents->count() }})</a></td>
                                     <td>
                                         <div class="btn-toolbar">
                                         <a class="btn btn-info btn-sm" href="{{ route('admin.landings.edit', $landing) }}"><i class="fas fa-fw fa-pen"></i> Edit</a>
