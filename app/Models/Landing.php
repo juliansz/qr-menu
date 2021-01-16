@@ -53,4 +53,9 @@ class Landing extends Model
             $landing->slug = $landing->slug ? $landing->slug : Str::random(config('qr.random-slug-size'));
         });
     }
+
+    public function getUrlAttribute()
+    {
+        return url('page/'.$this->slug);
+    }
 }
