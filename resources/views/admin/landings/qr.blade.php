@@ -41,13 +41,13 @@
                     </form>
                     <div class="visible-print text-center" id="qr">
                         @if($use_logo)
-                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge($logo, 0.6, true)->errorCorrection('H')->size($size)->generate(env('APP_URL'))) !!}">
+                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge($logo, 0.6, true)->errorCorrection('H')->size($size)->generate($landing->url)) !!}">
                         @else
-                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->errorCorrection('H')->size($size)->generate(env('APP_URL'))) !!}">
+                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->errorCorrection('H')->size($size)->generate($landing->url)) !!}">
                         @endif
                         <br><br>
-                        <h2>{{ $landing->name }}</h2>
-                        <h2>{{ $landing->link }}</h2>
+                        <h4>{{ $landing->name }}</h4>
+                        <h5>{{ $landing->link }}</h5>
                     </div>
                     <a class="btn btn-success btn-sm" onClick="printDiv()" href="#">Print</a>
                 </div>
