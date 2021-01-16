@@ -18,6 +18,15 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form role="form" method="post">
                         @csrf
 
@@ -25,12 +34,6 @@
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Landing page name" value="{{ isset($landing) ? $landing->name : '' }}" required>
                         </div>
-                        {{--<div class="form-group">
-                            <label for="type">Type</label>
-                            <select class="form-control">
-                                <option></option>
-                            </select>
-                        </div>--}}
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea name="description" class="form-control" id="description" placeholder="Landing page description">{{ isset($landing) ? $landing->description : '' }}</textarea>
@@ -39,12 +42,6 @@
                             <label for="slug">Slug</label>
                             <input type="text" name="slug" class="form-control" id="slug" placeholder="Write a unique slug or leave it empty for a random auto-generated one"  value="{{ isset($landing) ? $landing->slug : '' }}" @if(isset($landing)) required @endif>
                         </div>
-                        {{--<div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <input type="file" id="exampleInputFile">
-                            <p class="help-block">Example block-level help text here.</p>
-                        </div>--}}
-
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

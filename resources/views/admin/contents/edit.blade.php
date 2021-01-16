@@ -18,7 +18,16 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form role="form" method="post">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form role="form" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -47,6 +56,12 @@
                             <label for="file">File input</label>
                             <input type="file" id="file" name="file">
                             <p class="help-block">Upload your file here</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="file">Thumbnail</label>
+                            <input type="file" id="thumbnail" name="thumbnail">
+                            <p class="help-block">Upload a thumbnail for preview the content</p>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
