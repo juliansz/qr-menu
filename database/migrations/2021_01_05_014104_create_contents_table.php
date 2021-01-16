@@ -24,6 +24,8 @@ class CreateContentsTable extends Migration
             $table->json('options')->nullable();
             $table->text('url')->nullable();
             $table->text('content')->nullable();
+            $table->text('file_path')->nullable();
+            $table->text('thumbnail_path')->nullable();
             $table->unsignedBigInteger('landing_id');
 
             $table->foreign('landing_id')->references('id')->on('landings');

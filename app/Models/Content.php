@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Content extends Model
 {
@@ -22,6 +23,8 @@ class Content extends Model
         'description',
         'options',
         'landing_id',
+        'file_path',
+        'thumbnail_path',
     ];
 
     /**
@@ -57,5 +60,22 @@ class Content extends Model
         return $query->where(function ($query) use ($landing) {
             $query->where('landing_id', $landing->id);
         });
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($content) {
+            $content->slug = $content->slug ? $content->slug : Str::random(config('qr.random-slug-size'));
+        });
+    }
+
+    public function getLinkAttribute()
+    {
+        return asset('storage/' . $this->file_path);
+    }
+
+    public function getThumbnailUrlAttribute()
+    {
+        return asset('storage/' . $this->thumbnail_path);
     }
 }
