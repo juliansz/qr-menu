@@ -16,6 +16,7 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        // Don't want this route to be accessible
+        $response->assertStatus(404);
     }
 }
