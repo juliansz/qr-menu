@@ -20,6 +20,17 @@
             </div>
         </div>
     </div>
+    @if(config('qr.google-analytics-ua-code'))
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('qr.google-analytics-ua-code') }}"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ config('qr.google-analytics-ua-code') }}');
+        </script>
+    @endif
 @stop
 
 @section('css')
