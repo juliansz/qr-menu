@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -234,11 +234,11 @@ return [
             'url'  => 'admin/landings',
             'icon' => 'fas fa-fw fa-qrcode',
         ],
-        [
+        /*[
             'text' => 'Sign Out',
             'url'  => 'logout',
             'icon' => 'fas fa-fw fa-sign-out-alt',
-        ],
+        ],*/
 
     ],
 
