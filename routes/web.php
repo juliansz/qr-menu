@@ -13,19 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+    abort(404);
+});*/
 
-Route::get('/qr', [App\Http\Controllers\QrController::class, 'test']);
+Auth::routes(['register' => false]);
 
-Auth::routes();
+Route::get('/tito', [App\Http\Controllers\Admin\LandingController::class, 'index'])->name('tito');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/{landing}', [App\Http\Controllers\Admin\LandingController::class, 'landing'])->name('landing');
-
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
+    //TODO: fix the admin/, is not working:
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.index');
     Route::prefix('/landings')->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\LandingController::class, 'index'])->name('admin.landings.index');
@@ -46,3 +43,5 @@ Route::prefix('admin')->group(function () {
         });
     });
 });
+
+Route::get('/page/{landing}', [App\Http\Controllers\Admin\LandingController::class, 'landing'])->name('landing');
