@@ -22,7 +22,7 @@ class ContentController extends Controller
         return View::make('admin.contents.edit', compact('landing', 'content'));
     }
 
-    public function update(Request $request, Landing $landing, Content $content)
+    public function update(CreateContentRequest $request, Landing $landing, Content $content)
     {
         $input = $request->all();
         $content->update($input);
@@ -39,6 +39,7 @@ class ContentController extends Controller
     public function store(CreateContentRequest $request, Landing $landing)
     {
         $input = $request->all();
+
         Content::create($input);
         return redirect()->route('admin.contents.index', $landing);
     }
