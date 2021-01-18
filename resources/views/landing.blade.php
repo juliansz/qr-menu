@@ -11,7 +11,7 @@
                     <p>{{ $landing->description }}</p>
                 </div>
                 @foreach($landing->contents as $content)
-                    <a href="{{ $content->link }}" download>
+                    <a href="{{ $content->link }}" download class="text-center">
                         @if($content->thumbnail_path)<img class="img-fluid" src="{{ $content->thumbnail_url }}" />@endif
                         <h4>{{ $content->name }}</h4>
                         <p>{{ $content->description }}</p>
