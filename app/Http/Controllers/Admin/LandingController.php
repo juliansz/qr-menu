@@ -42,6 +42,11 @@ class LandingController extends Controller
         return redirect()->route('admin.landings.index');
     }
 
+    public function confirmDelete(Landing $landing)
+    {
+        return View::make('admin.landings.delete', compact('landing'));
+    }
+
     public function delete(Landing $landing)
     {
         $landing->delete();

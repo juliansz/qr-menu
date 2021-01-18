@@ -44,6 +44,12 @@ class ContentController extends Controller
         return redirect()->route('admin.contents.index', $landing);
     }
 
+
+    public function confirmDelete(Landing $landing, Content $content)
+    {
+        return View::make('admin.contents.delete', compact('landing', 'content'));
+    }
+
     public function delete(Landing $landing, Content $content)
     {
         $content->delete();

@@ -30,7 +30,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('/create', [App\Http\Controllers\Admin\LandingController::class, 'store']);
         Route::get('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'edit'])->name('admin.landings.edit');
         Route::post('/{landing}/edit', [App\Http\Controllers\Admin\LandingController::class, 'update']);
-        Route::get('/{landing}/delete', [App\Http\Controllers\Admin\LandingController::class, 'delete'])->name('admin.landings.delete');
+        Route::get('/{landing}/delete', [App\Http\Controllers\Admin\LandingController::class, 'confirmDelete'])->name('admin.landings.delete');
+        Route::post('/{landing}/delete', [App\Http\Controllers\Admin\LandingController::class, 'delete']);
         Route::get('/{landing}/qr', [App\Http\Controllers\Admin\LandingController::class, 'qr'])->name('admin.landings.qr');
 
         Route::prefix('/{landing}/contents')->group(function () {
@@ -39,7 +40,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::post('/create', [App\Http\Controllers\Admin\ContentController::class, 'store']);
             Route::get('/{content}/edit', [App\Http\Controllers\Admin\ContentController::class, 'edit'])->name('admin.contents.edit');
             Route::post('/{content}/edit', [App\Http\Controllers\Admin\ContentController::class, 'update']);
-            Route::get('/{content}/delete', [App\Http\Controllers\Admin\ContentController::class, 'delete'])->name('admin.contents.delete');
+            Route::get('/{content}/delete', [App\Http\Controllers\Admin\ContentController::class, 'confirmDelete'])->name('admin.contents.delete');
+            Route::post('/{content}/delete', [App\Http\Controllers\Admin\ContentController::class, 'delete']);
         });
     });
 });
