@@ -17,4 +17,10 @@ return [
 
     /* This value, if completed, must be the slug of the landing to be shown on the base url */
     'base-landing-slug' => env('BASE_LANDING_SLUG', ''),
+
+    /* This value, if completed, overwrites the css background color */
+    'background-color' => env('BACKGROUND_COLOR', ''),
+
+    /* Enable or disable the whatsapp sharing button */
+    'enable-whatsapp-sharing' => env('ENABLE_WHATSAPP_SHARING', true),
 ];
