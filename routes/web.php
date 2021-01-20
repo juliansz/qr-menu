@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
+    if (config('qr.base-landing-slug')) {
+        return redirect()->route('landing', config('qr.base-landing-slug'));
+    }
     abort(404);
-});*/
+});
 
 Auth::routes(['register' => false]);
-
-Route::get('/tito', [App\Http\Controllers\Admin\LandingController::class, 'index'])->name('tito');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     //TODO: fix the admin/, is not working:
