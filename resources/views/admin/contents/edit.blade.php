@@ -39,7 +39,7 @@
                                 <option value="{{ App\Models\Content::PDF_TYPE }}">{{ App\Models\Content::PDF_TYPE }}</option>
                                 <option value="{{ App\Models\Content::FILE_TYPE }}">{{ App\Models\Content::FILE_TYPE }}</option>
                                 <option value="{{ App\Models\Content::IMAGE_TYPE }}">{{ App\Models\Content::IMAGE_TYPE }}</option>
-                                <option value="{{ App\Models\Content::EMBED_TYPE }}" disabled>{{ App\Models\Content::EMBED_TYPE }}</option>
+                                <option value="{{ App\Models\Content::EMBEDDED_TYPE }}" disabled>{{ App\Models\Content::EMBEDED_TYPE }}</option>
                                 <option value="{{ App\Models\Content::LINK_TYPE }}" disabled>{{ App\Models\Content::LINK_TYPE }}</option>
                                 <option value="{{ App\Models\Content::HTML_TYPE }}" disabled>{{ App\Models\Content::HTML_TYPE }}</option>
                             </select>

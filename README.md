@@ -1,6 +1,8 @@
-![QR Menu](https://github.com/juliansz/qr-menu/blob/master/public/img/logo.jpg?raw=true)
-# QR Menu
+<center>
+<img src="https://github.com/juliansz/qr-menu/blob/master/public/img/logo.png?raw=true" width="200" height="200" />
 
+# QR Menu
+</center>
 Simple Laravel based QR generator application to upload files and generate landing pages to give your customers the ability to download the content using a QR code.
 
 This could be especially useful during the COVID-19 pandemic, so your customers won't need to use paper menus.

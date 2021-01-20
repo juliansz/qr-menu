@@ -39,11 +39,11 @@ class Content extends Model
     public const PDF_TYPE = 'pdf';
     public const FILE_TYPE = 'file';
     public const IMAGE_TYPE = 'img';
-    public const EMBED_TYPE = 'embed';
+    public const EMBEDDED_TYPE = 'embedded';
     public const LINK_TYPE = 'link';
     public const HTML_TYPE = 'html';
 
-    public const TYPES = ['pdf', 'file', 'img', 'embed', 'link', 'html'];
+    public const TYPES = ['pdf', 'file', 'img', 'embedded', 'link', 'html'];
 
     public function landing()
     {

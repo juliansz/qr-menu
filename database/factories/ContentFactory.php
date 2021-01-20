@@ -61,10 +61,10 @@ class ContentFactory extends Factory
             $content->type = Content::IMAGE_TYPE;
         });
     }
-    public function embed()
+    public function embedded()
     {
         return $this->afterCreating(function (content $content) {
-            $content->type = Content::EMBED_TYPE;
+            $content->type = Content::EMBEDDED_TYPE;
         });
     }
     public function link()
