@@ -39,7 +39,7 @@
                                 <option value="{{ App\Models\Content::PDF_TYPE }}">{{ App\Models\Content::PDF_TYPE }}</option>
                                 <option value="{{ App\Models\Content::FILE_TYPE }}">{{ App\Models\Content::FILE_TYPE }}</option>
                                 <option value="{{ App\Models\Content::IMAGE_TYPE }}">{{ App\Models\Content::IMAGE_TYPE }}</option>
-                                <option value="{{ App\Models\Content::EMBEDDED_TYPE }}" disabled>{{ App\Models\Content::EMBEDED_TYPE }}</option>
+                                <option value="{{ App\Models\Content::EMBEDDED_TYPE }}" disabled>{{ App\Models\Content::EMBEDDED_TYPE }}</option>
                                 <option value="{{ App\Models\Content::LINK_TYPE }}" disabled>{{ App\Models\Content::LINK_TYPE }}</option>
                                 <option value="{{ App\Models\Content::HTML_TYPE }}" disabled>{{ App\Models\Content::HTML_TYPE }}</option>
                             </select>
@@ -56,14 +56,14 @@
                             <label for="file">File input</label>
                             <input type="file" id="file" name="file">
                             <p class="help-block">Upload your file here</p>
-                            @if($content->file_path)<a href="{{ $content->link }}" download >Download file</a>@endif
+                            @if(isset($content) && $content->file_path)<a href="{{ $content->link }}" download >Download file</a>@endif
                         </div>
 
                         <div class="form-group">
                             <label for="file">Thumbnail</label>
                             <input type="file" id="thumbnail" name="thumbnail">
                             <p class="help-block">Upload a thumbnail for preview the content</p>
-                            @if($content->thumbnail_path)<img class="img-thumbnail col-3" src="{{ $content->thumbnail_url }}" />@endif
+                            @if(isset($content) && $content->thumbnail_path)<img class="img-thumbnail col-3" src="{{ $content->thumbnail_url }}" />@endif
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
